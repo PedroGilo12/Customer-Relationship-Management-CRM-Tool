@@ -38,14 +38,14 @@ Ensure that Java is installed on your machine. You can download it from the [off
 
 Add the Gson library to your project. Download the Gson JAR file from the [Gson GitHub releases](https://github.com/google/gson/releases) and add it to your project's build path.
 
-## Step 4: Compile Your Code
+### Step 4: Compile Your Code
 
 Open a terminal, navigate to your project directory, and compile your code:
 
 ```bash
 javac -cp path/to/gson.jar path/to/application/main.java
 ```
-## Step 5: Run Your Application
+### Step 5: Run Your Application
 
 After successful compilation, run your application using the following command in the terminal:
 
