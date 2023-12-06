@@ -1,11 +1,11 @@
 package userInterface;
 
-import adapter.UserInteraction;
+import adapter.Common;
 import adapter.Common.Customer;
 import adapter.Common.SaleStatus;
+import adapter.UserInteraction;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,146 +13,227 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import adapter.Common;
-
 public class DesktopInterface implements UserInteraction {
 
-    private Common commonInstance;
+  private Common commonInstance;
 
-    @Override
-    public void displayPage(Common.UserInteractionPages page, Object data) {
-        System.out.printf("[page: %s]\n\n", page.name());
-        switch (page) {
-            case MAIN_MENU:
-                System.out.println("Bem vindo ao ClietConnect");
-                System.out.printf("[1] Para prosseguir com o login.\n[2] Para prosseguir com o cadastro.\n");
-                break;
+  private final String users_file = "user.json";
+  private final String customers_file = "customer.json";
 
-            case LOGIN:
-                System.out.println("Bem vindo ao ClietConnect, por favor efetue o login\n");
-                System.out.printf("[1] Prosseguir com o login, envie 1.\n[2] Efetuar o cadastro, envie 2.\n");
-                break;
+  public DesktopInterface() { commonInstance = new Common(); }
 
-            case SIGNUP:
-                System.out.println("Bem vindo ao ClietConnect, por favor registre-se\n");
-                System.out.printf("[1] Para prosseguir com o cadastro.\n[2] Efetuar o login.\n");
-                break;
+  @Override
+  public void displayPage(Common.UserInteractionPages page, Object data) {
+    System.out.printf("[page: %s]\n\n", page.name());
+    Common.User user = (Common.User)data;
 
-            case HOME:
-                Common.User user = (Common.User) data;
-                System.out.printf("Seja bem vindo %s\n\n", user.name);
-                break;
+    switch (page) {
+    case MAIN_MENU:
+      System.out.println("Welcome to ClietConnect");
+      System.out.printf(
+          "[1] To proceed with login.\n[2] To proceed with registration.\n");
+      break;
 
-            default:
-                System.out.println("Página desconhecida");
-                break;
+    case LOGIN:
+      System.out.println("Welcome to ClietConnect, please log in\n");
+      System.out.printf(
+          "[1] Proceed with login, send 1.\n[2] Register, send 2.\n");
+      break;
+
+    case SIGNUP:
+      System.out.println("Welcome to ClietConnect, please register\n");
+      System.out.printf("[1] To proceed with registration.\n[2] Log in.\n");
+      break;
+
+    case HOME:
+
+      System.out.printf("Welcome %s\n\nSelect an option:\n", user.name);
+      System.out.println("[1] Contact Management");
+      System.out.println("[2] Sales Management");
+      System.out.println("[3] Activity tracker");
+      System.out.println("[4] Change dashboard");
+      System.out.println("[5] Register new customer");
+      System.out.println("[6] Logout");
+
+      break;
+
+    case REGISTER_CUSTOMER:
+      System.out.println("Register new customer\n");
+      break;
+
+    case CONTACTS:
+      System.out.println("Contacts\n");
+
+      try {
+        File file = new File(customers_file);
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+          Gson gson = new Gson();
+          Common.Customer customer = gson.fromJson(line, Common.Customer.class);
+
+          if (customer.ManagerName.equals(user.name)) {
+            System.out.printf("name: %s\n  email: %s\n  phone: %s\n",
+                              customer.name, customer.email, customer.phone);
+          }
+
+          System.out.println();
         }
 
-        System.out.printf("\n");
+        bufferedReader.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
+      System.out.println("[9] Back");
+
+      break;
+
+    default:
+      System.out.println("Unknown page");
+      break;
     }
 
-    @Override
-    public void displayMessage(String message, Object data) {
-        System.out.printf(message);
-    }
+    System.out.printf("\n");
+  }
 
-    @Override
-    public Object getUserGenericInput() {
-        return System.console().readLine();
-    }
+  @Override
+  public void displayMessage(String message, Object data) {
+    System.out.printf(message);
+  }
 
-	@Override
-	public Common.User loginUser() {
-		Common.User user = null; 
-		String users_file = "user.json";
+  @Override
+  public Object getUserGenericInput() {
+    return System.console().readLine();
+  }
 
-		System.out.println("Por favor, digite seu email: ");
-		String email = System.console().readLine();
+  @Override
+  public Common.User loginUser() {
+    Common.User user = null;
 
-		System.out.println("Por favor, digite sua senha: ");
-		String password = System.console().readLine();
+    System.out.println("Please enter your email: ");
+    String email = System.console().readLine();
 
-		try {
-			File file = new File(users_file);
-			FileReader fileReader = new FileReader(file);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
+    System.out.println("Please enter your password: ");
+    String password = System.console().readLine();
 
-			String line;
+    try {
+      File file = new File(users_file);
+      FileReader fileReader = new FileReader(file);
+      BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-			while((line  = bufferedReader.readLine()) != null) {
-				Gson gson = new Gson();
-				user = gson.fromJson(line, Common.User.class);
+      String line;
 
-				if(user.email.equals(email) && user.password.equals(password)) {
-					bufferedReader.close();
-					return user;
-				}
+      while ((line = bufferedReader.readLine()) != null) {
+        Gson gson = new Gson();
+        user = gson.fromJson(line, Common.User.class);
 
-			}
-
-			bufferedReader.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-    @Override
-    public Common.User registerUser() {
-        Common common = new Common();
-        Common.User newUser = common.new User();
-
-        System.out.println("Por favor, digite seu nome: ");
-        newUser.name = System.console().readLine();
-
-        System.out.println("Por favor, digite seu email: ");
-        newUser.email = System.console().readLine();
-
-        System.out.println("Por favor, digite sua senha: ");
-        newUser.password = System.console().readLine();
-
-        System.out.println("Por favor, digite seu telefone: ");
-        newUser.phone = System.console().readLine();
-
-        newUser.role = Common.UserRoles.MANAGER;
-        newUser.ManagerName = "nobody";
-
-        String users_file = "user.json";
-        try {
-            FileWriter fileWriter = new FileWriter(users_file, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
-            Gson gson = new Gson();
-            String userJson = gson.toJson(newUser);
-            bufferedWriter.write(userJson);
-            bufferedWriter.newLine();
-
-            bufferedWriter.close();
-            fileWriter.close();
-
-            return newUser;
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (user.email.equals(email) && user.password.equals(password)) {
+          bufferedReader.close();
+          return user;
         }
+      }
 
-        return null;
+      bufferedReader.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
+    return null;
+  }
 
-    @Override
-    public Customer registerCustomer() {
-        Common.Customer customer = commonInstance.new Customer();
-        return customer;
+  @Override
+  public Common.User registerUser() {
+    Common common = new Common();
+    Common.User newUser = common.new User();
+
+    System.out.println("Please enter your name: ");
+    newUser.name = System.console().readLine();
+
+    System.out.println("Please enter your email: ");
+    newUser.email = System.console().readLine();
+
+    System.out.println("Please enter your password: ");
+    newUser.password = System.console().readLine();
+
+    System.out.println("Please enter your phone number: ");
+    newUser.phone = System.console().readLine();
+
+    newUser.role = Common.UserRoles.MANAGER;
+    newUser.ManagerName = newUser.name;
+
+    try {
+      FileWriter fileWriter = new FileWriter(users_file, true);
+      BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+      Gson gson = new Gson();
+      String userJson = gson.toJson(newUser);
+      bufferedWriter.write(userJson);
+      bufferedWriter.newLine();
+
+      bufferedWriter.close();
+      fileWriter.close();
+
+      return newUser;
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
-    @Override
-    public String getCustomerContact() {
-        return "customer contact";
+    return null;
+  }
+
+  @Override
+  public Customer registerCustomer() {
+    Common.Customer customer = commonInstance.new Customer();
+
+    System.out.println("Please enter the customer's name: ");
+    customer.name = System.console().readLine();
+
+    System.out.println("Please enter the customer's email: ");
+    customer.email = System.console().readLine();
+
+    System.out.println("Please enter the customer's phone number: ");
+    customer.phone = System.console().readLine();
+
+    System.out.println("Please enter the customer's address: ");
+    customer.address = System.console().readLine();
+
+    System.out.println("Please enter the customer's sale process: ");
+    customer.saleProcess = System.console().readLine();
+
+    System.out.println("Please enter the customer's manager name: ");
+    customer.ManagerName = System.console().readLine();
+
+    try {
+      FileWriter fileWriter = new FileWriter(customers_file, true);
+      BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+      Gson gson = new Gson();
+      String customerJson = gson.toJson(customer);
+      bufferedWriter.write(customerJson);
+      bufferedWriter.newLine();
+
+      bufferedWriter.close();
+      fileWriter.close();
+
+      return customer;
+    } catch (IOException e) {
+      e.printStackTrace();
     }
 
-    @Override
-    public SaleStatus getSaleStatus(String email) {
-        return Common.SaleStatus.PENDING;
-    }
+    return null;
+  }
+
+  @Override
+  public String getCustomerContact() {
+    return "customer contact";
+  }
+
+  @Override
+  public SaleStatus getSaleStatus(String email) {
+    return Common.SaleStatus.PENDING;
+  }
 }

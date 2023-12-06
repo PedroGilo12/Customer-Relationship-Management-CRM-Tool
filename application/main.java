@@ -1,107 +1,178 @@
 package application;
 
+import adapter.*;
 import java.util.Locale;
 import userInterface.DesktopInterface;
-import adapter.*;
+
 
 public class main {
 
-    private static DesktopInterface desktopInterface = new DesktopInterface();
-    private static UserInteractionAdapter userInteraction = new UserInteractionAdapter(desktopInterface);
+  private static DesktopInterface desktopInterface = new DesktopInterface();
+  private static UserInteractionAdapter userInteraction =
+      new UserInteractionAdapter(desktopInterface);
 
-    private static Common.User user;
-    private static Common.User activeUser = null;
+  private static Common.User user;
+  private static Common.User activeUser = null;
 
-    interface UserAction {
-        void execute();
+  interface UserAction {
+    void execute();
+  }
+
+  public static void main(String[] args) {
+    mainMenu();
+  }
+
+  private static void mainMenu() {
+
+    userInteraction.displayPage(Common.UserInteractionPages.MAIN_MENU, null);
+    String userResponse = (String)userInteraction.getUserGenericInput();
+
+    UserAction userAction = null;
+
+    switch (userResponse) {
+    case "1":
+      userAction = () -> loginProcess();
+      break;
+
+    case "2":
+      userAction = () -> registerProcess();
+      break;
+
+    default:
+			userAction = () -> mainMenu();
+      break;
     }
 
-    public static void main(String[] args) {
-        userInteraction.displayPage(Common.UserInteractionPages.MAIN_MENU, null);
-        String userResponse = (String) userInteraction.getUserGenericInput();
+    if (userAction != null) {
+      userAction.execute();
+    }
+  }
 
-        UserAction userAction = null;
+  private static void registerProcess() {
+    userInteraction.displayPage(Common.UserInteractionPages.SIGNUP, null);
 
-        switch (userResponse) {
-            case "1":
-                userAction = () -> loginProcess();
-                break;
+    String userResponse = (String)userInteraction.getUserGenericInput();
 
-            case "2":
-                userAction = () -> registerProcess();
-                break;
+    UserAction userAction = null;
 
-            default:
+    switch (userResponse) {
+    case "1":
+      user = userInteraction.registerUser();
+      userAction = () -> loginProcess();
+      break;
 
-                break;
-        }
+    case "2":
+      userAction = () -> loginProcess();
+      break;
 
-        if (userAction != null) {
-            userAction.execute();
-        }
+    default:
+			userAction = () -> registerProcess();
+      break;
     }
 
-    private static void registerProcess() {
-        userInteraction.displayPage(Common.UserInteractionPages.SIGNUP, null);
+    if (userAction != null) {
+      userAction.execute();
+    }
+  }
 
-        String userResponse = (String) userInteraction.getUserGenericInput();
+  private static void loginProcess() {
+    userInteraction.displayPage(Common.UserInteractionPages.LOGIN, null);
 
-        UserAction userAction = null;
+    String userResponse = (String)userInteraction.getUserGenericInput();
 
-        switch (userResponse) {
-            case "1":
-                user = userInteraction.registerUser();
+    UserAction userAction = null;
 
-                break;
+    switch (userResponse) {
+    case "1":
+      user = userInteraction.loginUser();
 
-            case "2":
-                userAction = () -> loginProcess();
-                break;
+      if (user != null) {
+        activeUser = user;
+        userAction = () -> userHomePage();
+      } else {
+        userInteraction.displayMessage("User not found.\n", null);
+        userAction = () -> loginProcess();
+      }
+      break;
 
-            default:
-                break;
-        }
+    case "2":
+      userAction = () -> registerProcess();
+      break;
 
-        if (userAction != null) {
-            userAction.execute();
-        }
+    default:
+			userAction = () -> loginProcess();
+      break;
     }
 
-    private static void loginProcess() {
-        userInteraction.displayPage(Common.UserInteractionPages.LOGIN, null);
+    if (userAction != null) {
+      userAction.execute();
+    }
+  }
 
-        String userResponse = (String) userInteraction.getUserGenericInput();
+  private static void userHomePage() {
+    userInteraction.displayPage(Common.UserInteractionPages.HOME, activeUser);
 
-        UserAction userAction = null;
+    String userResponse = (String)userInteraction.getUserGenericInput();
 
-        switch (userResponse) {
-            case "1":
-                user = userInteraction.loginUser();
+    UserAction userAction = null;
 
-                if(user != null){
-                    activeUser = user;
-                    userAction = () -> userHomePage();
-                } else {
-                    userInteraction.displayMessage("Usuario ou senha invalidos.\n", null);
-                    userAction = () -> loginProcess();
-                }
-                break;
+    switch (userResponse) {
+    case "1":
+      userAction = () -> Contacts();
 
-            case "2":
-                userAction = () -> registerProcess();
-                break;
+      break;
+    case "5":
+      userAction = () -> registerCustomerProcess();
+      break;
 
-            default:
+		case "6":
+			activeUser = null;
+			userAction = () -> mainMenu();
+		break;
 
-                break;
-        }
-
-        if (userAction != null) {
-            userAction.execute();
-        }
+    default:
+			userAction = () -> userHomePage();
+      break;
     }
 
-    private static void userHomePage() {
-        userInteraction.displayPage(Common.UserInteractionPages.HOME, activeUser);
+    if (userAction != null) {
+      userAction.execute();
     }
+  }
+
+  private static void registerCustomerProcess() {
+
+    userInteraction.displayPage(Common.UserInteractionPages.REGISTER_CUSTOMER,
+                                activeUser);
+    userInteraction.registerCustomer();
+
+    UserAction userAction = () -> userHomePage();
+
+    if (userAction != null) {
+      userAction.execute();
+    }
+  }
+
+  private static void Contacts() {
+    userInteraction.displayPage(Common.UserInteractionPages.CONTACTS,
+                                activeUser);
+
+		String userResponse = (String)userInteraction.getUserGenericInput();
+
+		UserAction userAction = null;
+
+		switch (userResponse) {
+			case "9":
+				userAction = () -> userHomePage();
+			break;
+
+			default:
+				userAction = () -> Contacts();
+			break;
+		}
+
+		if (userAction != null) {
+			userAction.execute();
+		}
+  }
 }
