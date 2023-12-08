@@ -1,15 +1,14 @@
 package adapter;
 
+import utilities.*;
+
 public interface UserInteraction {
 
-  void displayPage(Common.UserInteractionPages page, Object data);
-  void displayMessage(String message, Object data);
+  void displayPage(Common.userActionState state);
+  void updatePage(String info);
 
-  Object getUserGenericInput();
-  Common.User loginUser();
-  Common.User registerUser();
-  Common.Customer registerCustomer();
+  void updateMenu(Common.Menu menu);
+  void executeUserAction();
+  String getUserResponse();
 
-  String getCustomerContact();
-  Common.SaleStatus getSaleStatus(String email);
 }

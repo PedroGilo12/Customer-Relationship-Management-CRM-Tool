@@ -1,5 +1,7 @@
 package adapter;
 
+import utilities.Common;
+
 public class UserInteractionAdapter {
 
   private UserInteraction userInteraction;
@@ -8,31 +10,19 @@ public class UserInteractionAdapter {
     this.userInteraction = userInteraction;
   }
 
-  public void displayPage(Common.UserInteractionPages page, Object data) {
-    userInteraction.displayPage(page, data);
+  public void displayPage(Common.userActionState data) {
+    userInteraction.displayPage(data);
   }
 
-  public void displayMessage(String message, Object data) {
-    userInteraction.displayMessage(message, data);
+  public void updatePage(String info) {
+    userInteraction.updatePage(info);
   }
 
-  public Common.User loginUser() { return userInteraction.loginUser(); }
-
-  public Common.User registerUser() { return userInteraction.registerUser(); }
-
-  public Common.Customer registerCustomer() {
-    return userInteraction.registerCustomer();
+  public void updateMenu(Common.Menu menu) {
+    userInteraction.updateMenu(menu);
   }
 
-  public String getCustomerContact() {
-    return userInteraction.getCustomerContact();
-  }
-
-  public Common.SaleStatus getSaleStatus(String email) {
-    return userInteraction.getSaleStatus(email);
-  }
-
-  public Object getUserGenericInput() {
-    return userInteraction.getUserGenericInput();
+  public void executeUserAction() {
+    userInteraction.executeUserAction();
   }
 }
