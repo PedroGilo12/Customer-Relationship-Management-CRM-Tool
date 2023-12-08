@@ -1,46 +1,41 @@
 package application;
 
 import adapter.*;
+import dataInterface.*;
 import userInterface.*;
+import utilities.Common.User;;
 
 public class UserAction {
-    
-    private static DesktopInterface desktopInterface = new DesktopInterface();
-    public UserInteractionAdapter userInteraction =
-        new UserInteractionAdapter(desktopInterface);
 
-    protected UserActionState previousUserActionState;
-    protected UserActionState userActionState = new UnregisterState(this);
+  public DesktopInterface desktopInterface = new DesktopInterface(this);
+  public UserInteractionAdapter userInteraction =
+      new UserInteractionAdapter(desktopInterface);
 
-    public UserActionState getState() {
-        return this.userActionState;
-    }
+  public JsonManagerInterface jsonManager = new JsonManagerInterface(this);
+  public dataManagerAdapter dataManager = new dataManagerAdapter(jsonManager);
 
-    public void setState(UserActionState userActionState) {
-        this.userActionState = userActionState;
-    }
+  protected UserActionState previousUserActionState;
+  protected UserActionState userActionState = new UnregisterState(this);
+  protected User ActiveUser;
 
-    public String getStateName() {
-        return this.userActionState.getName();
-    }
+  public UserActionState getState() { return this.userActionState; }
 
-    public void action0() {
-        this.userActionState.action0();
-    }
+  public void setState(UserActionState userActionState) {
+    this.userActionState = userActionState;
+    this.userActionState.entryState();
+  }
 
-    public void action1() {
-        this.userActionState.action1();
-    }
+  public String getStateName() { return this.userActionState.getName(); }
 
-    public void action2() {
-        this.userActionState.action2();
-    }
+  public void action0() { this.userActionState.action0(); }
 
-    public void action3() {
-        this.userActionState.action3();
-    }
+  public void action1() { this.userActionState.action1(); }
 
-    public void backAction() {
-        this.userActionState = this.previousUserActionState;
-    }
+  public void action2() { this.userActionState.action2(); }
+
+  public void action3() { this.userActionState.action3(); }
+
+  public void backAction() {
+    this.userActionState = this.previousUserActionState;
+  }
 }

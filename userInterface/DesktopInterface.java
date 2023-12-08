@@ -7,15 +7,43 @@ import utilities.*;
 
 public class DesktopInterface implements UserInteraction {
 
-  public DesktopInterface() {
+  UserAction userAction;
+
+  public DesktopInterface(UserAction userAction) {
+    this.userAction = userAction;
   }
 
   @Override
   public void displayPage(Common.userActionState page) {
     switch (page) {
       case UNREGISTER:
-        System.out.println("Inicio");
+        System.out.println("Welcome to ClientConnect System\n");
+        System.out.println("Already have an account?");
         break;
+
+      case LOGIN:
+        System.out.println("Login");
+      break;
+
+      case SIGNUP:
+        System.out.println("Sign Up");
+      break;
+
+      case HOME:
+        System.out.println("Home");
+      break;
+
+      case SALE_MANAGER:
+        System.out.println("Welcome to Sale Manager");
+      break;
+
+      case CUSTOMER_MANAGER:
+        System.out.println("Welcome to Customer Manager");
+      break;
+
+      case ACTIVITY_TRACKING:
+        System.out.println("Welcome to Activity Tracking");
+      break;
 
       default:
 
@@ -30,8 +58,23 @@ public class DesktopInterface implements UserInteraction {
 
   @Override
   public void updateMenu(Common.Menu menu) {
-    System.out.printf("\n[0] %s\n[1] %s\n[2] %s\n[3] %s\n\n", menu.option0,
-                      menu.option1, menu.option2, menu.option3);
+
+    if(!menu.option0.equals("")) {
+      System.out.printf("[0] %s\n",menu.option0);
+    }
+
+    if(!menu.option1.equals("")) {
+      System.out.printf("[1] %s\n",menu.option1);
+    }
+
+    if(!menu.option2.equals("")) {
+      System.out.printf("[2] %s\n",menu.option2);
+    }
+
+    if(!menu.option3.equals("")) {
+      System.out.printf("[3] %s\n",menu.option3);
+    }
+
   }
 
   @Override
@@ -39,23 +82,22 @@ public class DesktopInterface implements UserInteraction {
     Scanner scanner = new Scanner(System.in);
 
     int option = scanner.nextInt();
-    UserAction userAction = new UserAction();
 
     switch (option) {
       case 0:
-        userAction.action0();
+        this.userAction.action0();
         break;
 
       case 1:
-        userAction.action1();
+        this.userAction.action1();
         break;
 
       case 2:
-        userAction.action2();
+        this.userAction.action2();
         break;
 
       case 3:
-        userAction.action3();
+        this.userAction.action3();
         break;
     }
 
@@ -65,9 +107,6 @@ public class DesktopInterface implements UserInteraction {
   @Override
   public String getUserResponse() {
     Scanner scanner = new Scanner(System.in);
-    String response = scanner.nextLine();
-    scanner.close();
-
-    return response;
+    return scanner.nextLine();
   }
 }

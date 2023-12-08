@@ -25,4 +25,8 @@ public class UserInteractionAdapter {
   public void executeUserAction() {
     userInteraction.executeUserAction();
   }
+
+  public String getUserResponse() {
+    return userInteraction.getUserResponse();
+  }
 }
