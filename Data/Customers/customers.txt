@@ -1,0 +1,10 @@
+{"name":"John Smith","email":"john.smith@email.com","address":"123 Main St","phone":"555-1234","sales":"10","managerName":"Pedro","satisfaction":8,"vendorName":"Pedro"}
+{"name":"Emily Davis","email":"emily.davis@email.com","address":"456 Oak Ave","phone":"555-5678","sales":"5","managerName":"David Wilson","satisfaction":9,"vendorName":"Pedro"}
+{"name":"Michael Johnson","email":"michael.johnson@email.com","address":"789 Pine Blvd","phone":"555-9012","sales":"8","managerName":"Pedro","satisfaction":7,"vendorName":"Michael Turner"}
+{"name":"Sarah Miller","email":"sarah.miller@email.com","address":"101 Elm Ln","phone":"555-3456","sales":"12","managerName":"Frank Turner","satisfaction":10,"vendorName":"Sarah Davis"}
+{"name":"Brian Taylor","email":"brian.taylor@email.com","address":"202 Maple Dr","phone":"555-7890","sales":"6","managerName":"Grace Lee","satisfaction":6,"vendorName":"Brian Lee"}
+{"name":"Jessica Brown","email":"jessica.brown@email.com","address":"303 Cedar Rd","phone":"555-2345","sales":"9","managerName":"Pedro","satisfaction":8,"vendorName":"Pedro"}
+{"name":"Christopher White","email":"christopher.white@email.com","address":"404 Birch Ave","phone":"555-6789","sales":"15","managerName":"Pedro","satisfaction":9,"vendorName":"Chris Adams"}
+{"name":"Amanda Martinez","email":"amanda.martinez@email.com","address":"505 Spruce Blvd","phone":"555-0123","sales":"7","managerName":"Jack Wilson","satisfaction":7,"vendorName":"Amanda Rodriguez"}
+{"name":"Daniel Anderson","email":"daniel.anderson@email.com","address":"606 Pine St","phone":"555-4567","sales":"11","managerName":"Katherine Adams","satisfaction":8,"vendorName":"Daniel White"}
+{"name":"Olivia Rodriguez","email":"olivia.rodriguez@email.com","address":"707 Oak Ln","phone":"555-8901","sales":"4","managerName":"Liam Brown","satisfaction":6,"vendorName":"Olivia Taylor"}

@@ -1,6 +1,0 @@
-{"name":"Pedro","email":"pedro@email.com","address":"Rua dos Artistas","phone":"456789012","saleProcess":"ACTIVE","ManagerName":"Pedro"}
-{"name":"Juliana","email":"juliana@email.com","address":"Casa da Esquina","phone":"789456123","saleProcess":"INACTIVE","ManagerName":"Pedro"}
-{"name":"Ricardo","email":"ricardo@email.com","address":"Apartamento 502","phone":"321654987","saleProcess":"ACTIVE","ManagerName":"Pedro"}
-{"name":"Amanda","email":"amanda@email.com","address":"Travessa das Árvores","phone":"654789321","saleProcess":"INACTIVE","ManagerName":"Bruno"}
-{"name":"Luiz","email":"luiz@email.com","address":"Avenida do Comércio","phone":"987321654","saleProcess":"ACTIVE","ManagerName":"Isabela"}
-{"name":"Mariana","email":"mariana@email.com","address":"Casa da Colina","phone":"159753468","saleProcess":"INACTIVE","ManagerName":"Felipe"}

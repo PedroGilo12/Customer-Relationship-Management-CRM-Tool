@@ -28,6 +28,11 @@ public class dataManagerAdapter implements dataManager {
     }
 
     @Override
+    public Customer getCustomerByIndex(int index) {
+        return dataManager.getCustomerByIndex(index);
+    }
+
+    @Override
     public void createCustomer(Customer customer) {
         dataManager.createCustomer(customer);
     }

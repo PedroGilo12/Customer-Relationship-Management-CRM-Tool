@@ -121,7 +121,7 @@ public class JsonManagerInterface implements dataManager {
       e.printStackTrace();
     }
 
-    return customer;
+    return null;
   }
 
   @Override
@@ -230,4 +230,37 @@ public class JsonManagerInterface implements dataManager {
       e.printStackTrace();
     }
   }
+
+  @Override
+  public Customer getCustomerByIndex(int index) {
+      Customer customer = null;
+      File customersFile = new File(getCustomersFilePath());
+  
+      try {
+          FileReader fileReader = new FileReader(customersFile);
+          BufferedReader bufferedReader = new BufferedReader(fileReader);
+  
+          String line;
+          int currentIndex = 0;
+  
+          while ((line = bufferedReader.readLine()) != null) {
+              if (currentIndex == index) {
+                  Gson gson = new Gson();
+                  customer = gson.fromJson(line, Customer.class);
+                  bufferedReader.close();
+                  return customer;
+              }
+  
+              currentIndex++;
+          }
+
+          bufferedReader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+  
+      return null;
+  }
+  
+  
 }

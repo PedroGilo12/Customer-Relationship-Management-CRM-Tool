@@ -33,12 +33,26 @@ public class Common {
   }
 
   public class Customer {
+
+    public Customer(String name, String email, String address, String phone,
+                    String sales, String managerName, int satisfaction,
+                    String vendorName) {
+      this.name = name;
+      this.email = email;
+      this.address = address;
+      this.phone = phone;
+      this.sales = sales;
+      this.managerName = managerName;
+      this.satisfaction = satisfaction;
+      this.vendorName = vendorName;
+    }
     public String name;
     public String email;
     public String address;
     public String phone;
     public String sales;
     public String managerName;
+    public int satisfaction;
     public String vendorName;
   }
 
