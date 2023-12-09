@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
+- [Author](#Author)
+- [Last Updates](#last-updates)
+- [Remaing Updates](#remaining-updates)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
 ## Author
 Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
@@ -32,27 +32,30 @@ Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
 
 ## Project Setup and Execution Guide
 
-### Step 1: Set Up Your Java Development Environment
+### To run the application using java
 
-Ensure that Java is installed on your machine. You can download it from the [official Oracle website](https://www.oracle.com/java/technologies/javase-downloads.html) or use OpenJDK.
+Open the terminal and type:
 
-### Step 2: Set Up Dependencies
+```bash
+java -cp "ClientConnect.jar;lib\gson-2.8.2.jar;lib\itextpdf-5.5.9.jar" application.Main
+```
 
-Add the Gson library to your project. Download the Gson JAR file from the [Gson GitHub releases](https://github.com/google/gson/releases) and add it to your project's build path.
+Or run it on Windows CMD using the run.bat script:
 
-### Step 4: Compile Your Code
+```bash
+run.bat
+```
+
+### Compile The Code
 
 Open a terminal, navigate to your project directory, and compile your code:
 
 ```bash
-javac -cp path/to/gson.jar path/to/application/main.java
+javac -d out -cp "lib\gson-2.8.2.jar;lib\itextpdf-5.5.9.jar" application\Main.java utilities\*.java adapter\*.java userInterface\*.java dataInterface\*.java application\*.java
+jar -cvfe ClientConnect.jar application.Main -C out .
 ```
-### Step 5: Run Your Application
-
-After successful compilation, run your application using the following command in the terminal:
+Or compile it on windows CMD using the install.bat script:
 
 ```bash
-java -cp src:path/to/gson.jar main.main
+install.bat
 ```
-
-
