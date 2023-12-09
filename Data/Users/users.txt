@@ -1,9 +1,1 @@
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
-{"name":"Unregister","email":"Unregister","password":"Unregister","phone":"Unregister","role":"Unregister","managerName":"Unregister"}
 {"name":"Pedro","email":"a","password":"a","phone":"99999999","role":"Manager","managerName":"Pedro"}

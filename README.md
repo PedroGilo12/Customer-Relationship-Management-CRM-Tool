@@ -14,13 +14,14 @@ Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
 * Contact Management: Storing and managing customer contact information;
 * Sales Pipeline Management: Managing the stages of the sales process;
 * Reporting and Analytics: Providing sales reports and customer analytics;
+* Activity Tracking: Tracking interactions with customers, such as calls and meetings;
 
 ## Remaining Updates
 
 * ~~Contact Management: Storing and managing customer contact information;~~
 * ~~Sales Pipeline Management: Managing the stages of the sales process~~;
-* Activity Tracking: Tracking interactions with customers, such as calls and meetings;
-* Task and Appointment Scheduling: Organizing tasks and appointments with customers;
+* ~~Activity Tracking: Tracking interactions with customers, such as calls and meetings;~~
+* ~~Task and Appointment Scheduling: Organizing tasks and appointments with customers;~~
 * Email Integration and Campaign Management: Managing email communications and marketing campaigns;
 * Lead Generation and Tracking: Tracking potential leads and their progress;
 * Customizable Dashboards: Offering customizable dashboards for different user roles;

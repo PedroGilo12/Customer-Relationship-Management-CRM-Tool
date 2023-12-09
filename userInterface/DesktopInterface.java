@@ -15,6 +15,7 @@ public class DesktopInterface implements UserInteraction {
 
   @Override
   public void displayPage(Common.userActionState page) {
+    clearTerminal();
     switch (page) {
       case UNREGISTER:
         System.out.println("Welcome to ClientConnect System\n");
@@ -109,4 +110,18 @@ public class DesktopInterface implements UserInteraction {
     Scanner scanner = new Scanner(System.in);
     return scanner.nextLine();
   }
+
+  private static void clearTerminal() {
+    String os = System.getProperty("os.name").toLowerCase();
+
+    try {
+        if (os.contains("win")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.print("\033[H\033[2J");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 }

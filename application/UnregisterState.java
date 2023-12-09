@@ -14,7 +14,7 @@ public class UnregisterState implements UserActionState {
   private UserAction userAction;
 
   Common common = new Common();
-  Menu menu = common.new Menu("Login", "Sign Up", "", "");
+  Menu menu = common.new Menu("Login", "Sign Up", "Exit", "");
 
   public UnregisterState(UserAction userAction) {
     this.userAction = userAction;

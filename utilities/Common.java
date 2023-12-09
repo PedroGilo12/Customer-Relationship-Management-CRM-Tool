@@ -14,7 +14,7 @@ public class Common {
 
   public class CustomerInformations {
 
-    public CustomerInformations(int meetNumber, int scheduledAppointments,
+    public CustomerInformations(int meetNumber, String scheduledAppointments,
                                 String primaryInterest,
                                 String secondaryInterest, String cpf, String rg,
                                 String activeCapaing) {
@@ -27,13 +27,13 @@ public class Common {
       this.activeCapaing = activeCapaing;
     }
 
-    int meetNumber;
-    int scheduledAppointments;
-    String primaryInterest;
-    String secondaryInterest;
-    String cpf;
-    String rg;
-    String activeCapaing;
+    public int meetNumber;
+    public String scheduledAppointments;
+    public String primaryInterest;
+    public String secondaryInterest;
+    public String cpf;
+    public String rg;
+    public String activeCapaing;
   }
 
   public class User {
@@ -60,7 +60,8 @@ public class Common {
 
     public Customer(String name, String email, String address, String phone,
                     String sales, String managerName, int satisfaction,
-                    String vendorName) {
+                    String vendorName,
+                    CustomerInformations customerInformations) {
       this.name = name;
       this.email = email;
       this.address = address;
@@ -69,6 +70,7 @@ public class Common {
       this.managerName = managerName;
       this.satisfaction = satisfaction;
       this.vendorName = vendorName;
+      this.customerInformations = customerInformations;
     }
     public String name;
     public String email;
@@ -78,6 +80,7 @@ public class Common {
     public String managerName;
     public int satisfaction;
     public String vendorName;
+    public CustomerInformations customerInformations;
   }
 
   public class Sale {

@@ -6,6 +6,7 @@ import java.util.*;
 import userInterface.*;
 import utilities.*;
 import utilities.Common.Customer;
+import utilities.Common.CustomerInformations;
 import utilities.Common.Menu;
 import utilities.Common.User;
 
@@ -83,11 +84,29 @@ public class CustomerManagerState implements UserActionState {
     userAction.userInteraction.updatePage("Enter customer vendor name: ");
     String vendorName = userAction.userInteraction.getUserResponse();
 
+    userAction.userInteraction.updatePage("Enter customer cpf: ");
+    String cpf = userAction.userInteraction.getUserResponse();
+
+    userAction.userInteraction.updatePage("Enter customer rg: ");
+    String rg = userAction.userInteraction.getUserResponse();
+
+    userAction.userInteraction.updatePage("Enter customer primary interest: ");
+    String primaryInterest = userAction.userInteraction.getUserResponse();
+
+    userAction.userInteraction.updatePage(
+        "Enter customer secondary interest: ");
+    String secondaryInterest = userAction.userInteraction.getUserResponse();
+
+    CustomerInformations customerInformations= common.new CustomerInformations(
+        0, "", primaryInterest, secondaryInterest, cpf, rg, "none");
+
     Customer customer =
         common.new Customer(name, email, address, phone, sales, managerName,
-                            satisfaction, vendorName);
+                            satisfaction, vendorName, customerInformations);
 
     userAction.dataManager.createCustomer(customer);
+
+    userAction.setState(new CustomerManagerState(userAction));
   }
 
   @Override

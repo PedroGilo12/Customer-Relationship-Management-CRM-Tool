@@ -10,7 +10,6 @@ import utilities.Common.Menu;
 import utilities.Common.Sale;
 import utilities.Common.User;
 
-
 public class SaleManagerState implements UserActionState {
 
   private String name = "Sale Manager";
@@ -18,8 +17,8 @@ public class SaleManagerState implements UserActionState {
 
   Common common = new Common();
 
-  Menu menu = common.new Menu("Update or create new sale.",
-                              "Generate sales report.", "Return", "");
+  Menu menu = common.new Menu("Create new sale.", "Generate sales report.",
+                              "Update sale status.", "Return");
 
   public SaleManagerState(UserAction userAction) {
     this.userAction = userAction;
@@ -85,11 +84,25 @@ public class SaleManagerState implements UserActionState {
 
   @Override
   public void action2() {
-    userAction.setState(new HomeState(userAction));
+    userAction.userInteraction.updatePage(
+        "Type the name of the product or service: ");
+    String product = userAction.userInteraction.getUserResponse();
+
+    userAction.userInteraction.updatePage("Type the sale's status: ");
+    String status = userAction.userInteraction.getUserResponse();
+
+    userAction.userInteraction.updatePage("Type the email of the customer: ");
+    String email = userAction.userInteraction.getUserResponse();
+
+    Sale sale = common.new Sale(product, status, email);
+
+    userAction.dataManager.updateSaleStatus(userAction.ActiveUser, sale);
+
+    userAction.setState(new SaleManagerState(userAction));
   }
 
   @Override
   public void action3() {
-    userAction.setState(new SaleManagerState(userAction));
+    userAction.setState(new HomeState(userAction));
   }
 }

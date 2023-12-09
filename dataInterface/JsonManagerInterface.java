@@ -135,19 +135,6 @@ public class JsonManagerInterface implements dataManager {
   @Override
   public void createCustomer(Customer customer) {
     File customersFile = new File(getCustomersFilePath());
-    File customerInfoFile =
-        new File(customerFolderPath + customer.email + ".txt");
-
-    CustomerInformations customerInformations =
-        common.new CustomerInformations(0, 0, "", "", "", "", "none");
-
-    if (!customerInfoFile.exists()) {
-      try {
-        customerInfoFile.createNewFile();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
 
     try {
       FileWriter fileWriter = new FileWriter(customersFile, true);
@@ -232,7 +219,8 @@ public class JsonManagerInterface implements dataManager {
         Gson gson = new Gson();
         Sale existingSale = gson.fromJson(line, Sale.class);
 
-        if (existingSale.equals(sale)) {
+        if (existingSale.Customer.equals(sale.Customer) &&
+            existingSale.Product.equals(sale.Product)) {
           existingSale.Status = sale.Status;
         }
 
@@ -309,6 +297,7 @@ public class JsonManagerInterface implements dataManager {
           existingCustomer.managerName = updatedCustomer.managerName;
           existingCustomer.satisfaction = updatedCustomer.satisfaction;
           existingCustomer.vendorName = updatedCustomer.vendorName;
+          existingCustomer.customerInformations = updatedCustomer.customerInformations;
         }
 
         String updatedCustomerJson = gson.toJson(existingCustomer);
