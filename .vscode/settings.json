@@ -2,7 +2,6 @@
     "java.project.referencedLibraries": {
         "include": [
             "lib/**/*.jar",
-            "c:\\Users\\Pedro\\Downloads\\jar_files\\gson-2.8.2.jar",
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\svg-7.1.3-sources.jar",
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\styled-xml-parser-7.1.3-sources.jar",
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\forms-7.1.3-sources.jar",
@@ -12,8 +11,7 @@
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\sign-7.1.3-sources.jar",
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\barcodes-7.1.3-sources.jar",
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\layout-7.1.3-sources.jar",
-            "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\pdfa-7.1.3-sources.jar",
-            "c:\\Users\\Pedro\\Downloads\\pdfjava\\itextpdf-5.5.9.jar"
+            "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\pdfa-7.1.3-sources.jar"
         ],
         "exclude": [
             "c:\\Users\\Pedro\\Downloads\\iText7-Core-7.1.3\\pdfa-7.1.3-javadoc.jar"
