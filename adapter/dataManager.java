@@ -13,9 +13,13 @@ public interface dataManager {
     Customer getCustomer(String email);
     Customer getCustomerByIndex(int index);
     void createCustomer(Customer customer);
+    void updateCustomer(Customer customer);
 
     Sale getSales(User user, Customer customer);
+    Sale getSalebyIndex(User user, int index);
     void updateSaleStatus(User user, Sale sale);
     void createSale(User user, Sale sale);
+
+    void generateSaleReport(User user);
     
 }

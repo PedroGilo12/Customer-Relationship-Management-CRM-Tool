@@ -57,11 +57,11 @@ public class LoginState implements UserActionState {
 
   @Override
   public void action2(){
-
+    userAction.setState(new LoginState(userAction));
   };
 
   @Override
   public void action3(){
-
+    userAction.setState(new LoginState(userAction));
   };
 }

@@ -111,12 +111,28 @@ public class CustomerManagerState implements UserActionState {
     userAction.userInteraction.updatePage("Customer satisfaction: " +
                                           customer.satisfaction);
 
-    // userAction.setState(new CustomerInfoState(userAction));
+    userAction.setState(new CustomerManagerState(userAction));
   }
 
   @Override
   public void action2() {
-    // userAction.setState(new UpdateSatisfactionState(userAction));
+    userAction.userInteraction.updatePage("Enter customer email: ");
+    String email = userAction.userInteraction.getUserResponse();
+
+    Customer customer = userAction.dataManager.getCustomer(email);
+
+    if (customer == null) {
+      userAction.userInteraction.updatePage("Customer not found!\n");
+      return;
+    }
+
+    userAction.userInteraction.updatePage("Enter customer satisfaction: ");
+    int satisfaction =
+        Integer.parseInt(userAction.userInteraction.getUserResponse());
+
+    customer.satisfaction = satisfaction;
+
+    userAction.dataManager.updateCustomer(customer);
   }
 
   @Override

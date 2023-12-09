@@ -34,7 +34,7 @@ public class HomeState implements UserActionState {
 
   @Override
   public void action0() {
-    //userAction.setState(new ActivityTrackingState(userAction));
+    userAction.setState(new ActivityTrackingState(userAction));
   }
 
   @Override
@@ -44,7 +44,7 @@ public class HomeState implements UserActionState {
 
   @Override
   public void action2() {
-    //userAction.setState(new SaleManagerState(userAction));
+    userAction.setState(new SaleManagerState(userAction));
   }
 
   @Override

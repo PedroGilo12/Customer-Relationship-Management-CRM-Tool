@@ -12,6 +12,30 @@ public class Common {
     ACTIVITY_TRACKING,
   }
 
+  public class CustomerInformations {
+
+    public CustomerInformations(int meetNumber, int scheduledAppointments,
+                                String primaryInterest,
+                                String secondaryInterest, String cpf, String rg,
+                                String activeCapaing) {
+      this.meetNumber = meetNumber;
+      this.scheduledAppointments = scheduledAppointments;
+      this.primaryInterest = primaryInterest;
+      this.secondaryInterest = secondaryInterest;
+      this.cpf = cpf;
+      this.rg = rg;
+      this.activeCapaing = activeCapaing;
+    }
+
+    int meetNumber;
+    int scheduledAppointments;
+    String primaryInterest;
+    String secondaryInterest;
+    String cpf;
+    String rg;
+    String activeCapaing;
+  }
+
   public class User {
 
     public User(String name, String email, String password, String phone,

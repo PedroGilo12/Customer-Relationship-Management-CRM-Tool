@@ -52,4 +52,18 @@ public class dataManagerAdapter implements dataManager {
         dataManager.createSale(user, sale);
     }
 
+    @Override
+    public void updateCustomer(Customer customer) {
+        dataManager.updateCustomer(customer);
+    }
+
+    @Override
+    public void generateSaleReport(User user) {
+        dataManager.generateSaleReport(user);
+    }
+
+    @Override
+    public Sale getSalebyIndex(User user, int index) {
+        return dataManager.getSalebyIndex(user, index);
+    }
 }
