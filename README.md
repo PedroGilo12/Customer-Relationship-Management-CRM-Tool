@@ -16,6 +16,7 @@ Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
 * Sales Pipeline Management: Managing the stages of the sales process;
 * Reporting and Analytics: Providing sales reports and customer analytics;
 * Activity Tracking: Tracking interactions with customers, such as calls and meetings;
+* Document Storage and Management: Storing and managing sales and marketing documents;
 
 ## Remaining Updates
 
@@ -27,7 +28,7 @@ Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
 * Lead Generation and Tracking: Tracking potential leads and their progress;
 * Customizable Dashboards: Offering customizable dashboards for different user roles;
 * ~~Reporting and Analytics: Providing sales reports and customer analytics~~;
-* Document Storage and Management: Storing and managing sales and marketing documents;
+* ~~Document Storage and Management: Storing and managing sales and marketing documents;~~
 * Mobile Access and Integration: Ensuring CRM accessibility and functionality on mobile
 
 # Usage

@@ -139,7 +139,23 @@ public class ActivityTrackingState implements UserActionState {
   }
 
   public void action1() {
-    // TODO
+    userAction.userInteraction.updatePage("Enter customer email: ");
+    String email = userAction.userInteraction.getUserResponse();
+
+    Customer customer = userAction.dataManager.getCustomer(email);
+
+    if (customer == null) {
+      userAction.userInteraction.updatePage("Customer not found!\n");
+      return;
+    }
+
+    userAction.userInteraction.updatePage(customer.name + " documents: ");
+    userAction.userInteraction.updatePage("    RG:" + customer.customerInformations.rg);
+    userAction.userInteraction.updatePage("    CPF:" + customer.customerInformations.cpf);
+
+    userAction.userInteraction.updatePage("Press enter to return");
+    userAction.userInteraction.getUserResponse();
+    userAction.setState(new ActivityTrackingState(userAction));
   }
 
   public void action2() {
