@@ -1,3 +1,5 @@
 {"Product":"web development","Status":"open","Customer":"john.smith@email.com"}
 {"Product":"system ui","Status":"pending","Customer":"john.smith@email.com"}
 {"Product":"api","Status":"canceled","Customer":"john.smith@email.com"}
+{"Product":"File System API","Status":"pending","Customer":"arquimedes@123.com"}
+{"Product":"API Qualquer","Status":"Open","Customer":"Samuel@123.com"}

@@ -66,4 +66,9 @@ public class dataManagerAdapter implements dataManager {
     public Sale getSalebyIndex(User user, int index) {
         return dataManager.getSalebyIndex(user, index);
     }
+
+    @Override
+    public User getUserByName(String name) {
+        return dataManager.getUserByName(name);
+    }
 }

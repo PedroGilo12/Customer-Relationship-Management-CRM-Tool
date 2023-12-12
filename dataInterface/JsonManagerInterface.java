@@ -297,7 +297,8 @@ public class JsonManagerInterface implements dataManager {
           existingCustomer.managerName = updatedCustomer.managerName;
           existingCustomer.satisfaction = updatedCustomer.satisfaction;
           existingCustomer.vendorName = updatedCustomer.vendorName;
-          existingCustomer.customerInformations = updatedCustomer.customerInformations;
+          existingCustomer.customerInformations =
+              updatedCustomer.customerInformations;
         }
 
         String updatedCustomerJson = gson.toJson(existingCustomer);
@@ -400,6 +401,35 @@ public class JsonManagerInterface implements dataManager {
         }
 
         currentIndex++;
+      }
+
+      bufferedReader.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return null;
+  }
+
+  @Override
+  public User getUserByName(String name) {
+    Common.User user = null;
+    File users_file = new File(getUsersFilePath());
+
+    try {
+      FileReader fileReader = new FileReader(users_file);
+      BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+      String line;
+
+      while ((line = bufferedReader.readLine()) != null) {
+        Gson gson = new Gson();
+        user = gson.fromJson(line, Common.User.class);
+
+        if (user.name.equals(name)) {
+          bufferedReader.close();
+          return user;
+        }
       }
 
       bufferedReader.close();

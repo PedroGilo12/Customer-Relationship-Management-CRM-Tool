@@ -30,6 +30,8 @@ public class CustomerManagerState implements UserActionState {
         Common.userActionState.CUSTOMER_MANAGER);
 
     int index = 0;
+    int maxSales = 0;
+    Set<String> potentialLeaderNames = new HashSet<>();
 
     while (true) {
       Customer customer = userAction.dataManager.getCustomerByIndex(index);
@@ -37,10 +39,50 @@ public class CustomerManagerState implements UserActionState {
       if (customer == null) {
         break;
       }
+
+      if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
+        int currentSales = Integer.parseInt(customer.sales);
+        if (currentSales > maxSales) {
+          maxSales = currentSales;
+        }
+      }
+
+      index++;
+    }
+
+    index = 0;
+    while (true) {
+      Customer customer = userAction.dataManager.getCustomerByIndex(index);
+
+      if (customer == null) {
+        break;
+      }
+
+      if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
+        if (Integer.parseInt(customer.sales) > 0.5 * maxSales) {
+          potentialLeaderNames.add(customer.customerInformations.primaryInterest);
+        }
+      }
+
+      index++;
+    }
+
+    index = 0;
+    while (true) {
+      Customer customer = userAction.dataManager.getCustomerByIndex(index);
+
+      if (customer == null) {
+        break;
+      }
+
       if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
         userAction.userInteraction.updatePage("\nCustomer: ");
         userAction.userInteraction.updatePage("    name: " + customer.name);
         userAction.userInteraction.updatePage("    email: " + customer.email);
+
+        if (potentialLeaderNames.contains(customer.customerInformations.primaryInterest)) {
+          userAction.userInteraction.updatePage("   *Status: POTENTIAL LEADER");
+        }
       }
 
       index++;
@@ -97,7 +139,7 @@ public class CustomerManagerState implements UserActionState {
         "Enter customer secondary interest: ");
     String secondaryInterest = userAction.userInteraction.getUserResponse();
 
-    CustomerInformations customerInformations= common.new CustomerInformations(
+    CustomerInformations customerInformations = common.new CustomerInformations(
         0, "", primaryInterest, secondaryInterest, cpf, rg, "none");
 
     Customer customer =

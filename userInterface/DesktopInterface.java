@@ -46,6 +46,10 @@ public class DesktopInterface implements UserInteraction {
         System.out.println("Welcome to Activity Tracking");
       break;
 
+      case CAMPAIGN_DASHBOARD:
+        System.out.println("Welcome to Campaign Dashboard");
+      break;
+
       default:
 
         break;

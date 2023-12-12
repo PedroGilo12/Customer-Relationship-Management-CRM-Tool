@@ -10,6 +10,7 @@ public class Common {
     SALE_MANAGER,
     CUSTOMER_MANAGER,
     ACTIVITY_TRACKING,
+    CAMPAIGN_DASHBOARD,
   }
 
   public class CustomerInformations {

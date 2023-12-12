@@ -8,6 +8,7 @@ import utilities.Common.User;
 public interface dataManager {  
 
     User getUser(String email, String password);
+    User getUserByName(String name);
     void createUser(User user);
 
     Customer getCustomer(String email);
