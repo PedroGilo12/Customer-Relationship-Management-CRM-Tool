@@ -77,14 +77,14 @@ The project incorporates two design patterns to enhance its functionality: the a
 
 ## Screens and options:
 
-![img0] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img0.jpg)
+![img0](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img0.jpg)
 
-![img1] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img1.jpg)
+![img1](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img1.jpg)
 
-![img2] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img2.jpg)
+![img2](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img2.jpg)
 
-![img3] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img3.jpg)
+![img3](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img3.jpg)
 
-![img4] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img4.jpg)
+![img4](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img4.jpg)
 
-![img5] (https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img5.jpg)
+![img5](https://github.com/PedroGilo12/Customer-Relationship-Management-CRM-Tool/blob/main/img/img5.jpg)
