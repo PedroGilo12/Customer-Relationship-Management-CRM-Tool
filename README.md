@@ -21,6 +21,7 @@ Pedro Henrique Vieira Giló (phvg@ic.ufal.br)
 * Task and Appointment Scheduling: Organizing tasks and appointments with customers;
 * Customizable Dashboards: Offering customizable dashboards for different user roles;
 * Lead Generation and Tracking: Tracking potential leads and their progress;
+* **Mobile Access and Integration: This functionality cannot be developed in the first stage of the project**
 
 ## Remaining Updates
 

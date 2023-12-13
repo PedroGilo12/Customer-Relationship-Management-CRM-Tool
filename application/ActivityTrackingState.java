@@ -159,7 +159,7 @@ public class ActivityTrackingState implements UserActionState {
   }
 
   public void action2() {
-    if(userAction.ActiveUser.role.equals("Manager")){
+    if(userAction.ActiveUser.role.equals("manager")){
       userAction.setState(new CampaignDashboardManager(userAction));
     } else {
       userAction.setState(new CampaignDashboardDefaultUser(userAction));

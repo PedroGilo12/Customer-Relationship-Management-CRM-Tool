@@ -172,6 +172,7 @@ public class CustomerManagerState implements UserActionState {
     userAction.userInteraction.updatePage("Customer satisfaction: " +
                                           customer.satisfaction);
 
+    userAction.userInteraction.getUserResponse();
     userAction.setState(new CustomerManagerState(userAction));
   }
 

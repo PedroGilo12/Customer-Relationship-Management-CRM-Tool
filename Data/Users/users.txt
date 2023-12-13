@@ -9,3 +9,4 @@
 {"name":"João","email":"joao@example.com","password":"Joao@123","phone":"11111111","role":"Vendor","managerName":"Pedro"}
 {"name":"Karla","email":"karla@example.com","password":"Karla@123","phone":"00000000","role":"Vendor","managerName":"Pedro"}
 {"name":"Luis","email":"luis@example.com","password":"Luis@123","phone":"12345678","role":"Vendor","managerName":"Pedro"}
+{"name":"matheus","email":"matheus123@abc.com","password":"123","phone":"999999999","role":"manager","managerName":"pedro"}
