@@ -60,7 +60,8 @@ public class CustomerManagerState implements UserActionState {
 
       if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
         if (Integer.parseInt(customer.sales) > 0.5 * maxSales) {
-          potentialLeaderNames.add(customer.customerInformations.primaryInterest);
+          potentialLeaderNames.add(
+              customer.customerInformations.primaryInterest);
         }
       }
 
@@ -75,13 +76,29 @@ public class CustomerManagerState implements UserActionState {
         break;
       }
 
-      if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
-        userAction.userInteraction.updatePage("\nCustomer: ");
-        userAction.userInteraction.updatePage("    name: " + customer.name);
-        userAction.userInteraction.updatePage("    email: " + customer.email);
+      if (userAction.ActiveUser.role.equals("manager")) {
+        if (customer.managerName.equals(userAction.ActiveUser.name)) {
+          userAction.userInteraction.updatePage("\nCustomer: ");
+          userAction.userInteraction.updatePage("    name: " + customer.name);
+          userAction.userInteraction.updatePage("    email: " + customer.email);
 
-        if (potentialLeaderNames.contains(customer.customerInformations.primaryInterest)) {
-          userAction.userInteraction.updatePage("   *Status: POTENTIAL LEADER");
+          if (potentialLeaderNames.contains(
+                  customer.customerInformations.primaryInterest)) {
+            userAction.userInteraction.updatePage(
+                "   *Status: POTENTIAL LEADER");
+          }
+        }
+      } else {
+        if (customer.vendorName.equals(userAction.ActiveUser.name)) {
+          userAction.userInteraction.updatePage("\nCustomer: ");
+          userAction.userInteraction.updatePage("    name: " + customer.name);
+          userAction.userInteraction.updatePage("    email: " + customer.email);
+
+          if (potentialLeaderNames.contains(
+                  customer.customerInformations.primaryInterest)) {
+            userAction.userInteraction.updatePage(
+                "   *Status: POTENTIAL LEADER");
+          }
         }
       }
 

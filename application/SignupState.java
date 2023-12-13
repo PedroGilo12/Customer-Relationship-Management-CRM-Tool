@@ -44,10 +44,10 @@ public class SignupState implements UserActionState {
         userAction.userInteraction.updatePage("Type your phone: ");
         String phone = userAction.userInteraction.getUserResponse();
 
-        userAction.userInteraction.updatePage("Type your role: ");
+        userAction.userInteraction.updatePage("Type your role (manager or vendor): ");
         String role = userAction.userInteraction.getUserResponse();
 
-        userAction.userInteraction.updatePage("Type your manager name (manager or vendor): ");
+        userAction.userInteraction.updatePage("Type your manager name: ");
         String managerName = userAction.userInteraction.getUserResponse();
 
         User user = common.new User(name, email, password, phone, role, managerName);

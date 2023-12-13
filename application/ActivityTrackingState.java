@@ -73,16 +73,30 @@ public class ActivityTrackingState implements UserActionState {
         break;
       }
 
-      if (customer.managerName.equals(userAction.ActiveUser.managerName)) {
-        String secondaryInterest =
-            customer.customerInformations.secondaryInterest;
-        secondaryInterestCounters.put(
-            secondaryInterest,
-            secondaryInterestCounters.getOrDefault(secondaryInterest, 0) + 1);
+      if (userAction.ActiveUser.role.equals("manager")) {
+        if (customer.managerName.equals(userAction.ActiveUser.name)) {
+          String secondaryInterest =
+              customer.customerInformations.secondaryInterest;
+          secondaryInterestCounters.put(
+              secondaryInterest,
+              secondaryInterestCounters.getOrDefault(secondaryInterest, 0) + 1);
 
-        userAction.userInteraction.updatePage(
-            secondaryInterest + " (" +
-            secondaryInterestCounters.get(secondaryInterest) + ")");
+          userAction.userInteraction.updatePage(
+              secondaryInterest + " (" +
+              secondaryInterestCounters.get(secondaryInterest) + ")");
+        }
+      } else {
+        if (customer.vendorName.equals(userAction.ActiveUser.name)) {
+          String secondaryInterest =
+              customer.customerInformations.secondaryInterest;
+          secondaryInterestCounters.put(
+              secondaryInterest,
+              secondaryInterestCounters.getOrDefault(secondaryInterest, 0) + 1);
+
+          userAction.userInteraction.updatePage(
+              secondaryInterest + " (" +
+              secondaryInterestCounters.get(secondaryInterest) + ")");
+        }
       }
 
       index++;
@@ -150,8 +164,10 @@ public class ActivityTrackingState implements UserActionState {
     }
 
     userAction.userInteraction.updatePage(customer.name + " documents: ");
-    userAction.userInteraction.updatePage("    RG:" + customer.customerInformations.rg);
-    userAction.userInteraction.updatePage("    CPF:" + customer.customerInformations.cpf);
+    userAction.userInteraction.updatePage("    RG:" +
+                                          customer.customerInformations.rg);
+    userAction.userInteraction.updatePage("    CPF:" +
+                                          customer.customerInformations.cpf);
 
     userAction.userInteraction.updatePage("Press enter to return");
     userAction.userInteraction.getUserResponse();
@@ -159,11 +175,11 @@ public class ActivityTrackingState implements UserActionState {
   }
 
   public void action2() {
-    if(userAction.ActiveUser.role.equals("manager")){
+    if (userAction.ActiveUser.role.equals("manager")) {
       userAction.setState(new CampaignDashboardManager(userAction));
     } else {
       userAction.setState(new CampaignDashboardDefaultUser(userAction));
-    } 
+    }
   }
 
   public void action3() { userAction.setState(new HomeState(userAction)); }

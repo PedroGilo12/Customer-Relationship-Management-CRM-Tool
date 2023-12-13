@@ -1,12 +1,13 @@
-{"name":"Pedro","email":"a","password":"a","phone":"99999999","role":"Manager","managerName":"Pedro"}
+{"name":"Pedro","email":"a","password":"a","phone":"99999999","role":"manager","managerName":"Pedro"}
 {"name":"Ana","email":"ana@example.com","password":"Ana@123","phone":"88888888","role":"Vendor","managerName":"Pedro"}
 {"name":"Carlos","email":"carlos@example.com","password":"Carlos@123","phone":"77777777","role":"Vendor","managerName":"Pedro"}
 {"name":"Eva","email":"eva@example.com","password":"Eva@123","phone":"66666666","role":"Manager","managerName":"Eva"}
 {"name":"Fernando","email":"fernando@example.com","password":"Fernando@123","phone":"55555555","role":"Vendor","managerName":"Pedro"}
 {"name":"Giselle","email":"giselle@example.com","password":"Giselle@123","phone":"44444444","role":"Vendor","managerName":"Pedro"}
 {"name":"Hugo","email":"hugo@example.com","password":"Hugo@123","phone":"33333333","role":"Vendor","managerName":"Pedro"}
-{"name":"Ivete","email":"ivete@example.com","password":"Ivete@123","phone":"22222222","role":"Manager","managerName":"Ivete"}
+{"name":"Ivete","email":"ivete@example.com","password":"Ivete@123","phone":"22222222","role":"manager","managerName":"Ivete"}
 {"name":"João","email":"joao@example.com","password":"Joao@123","phone":"11111111","role":"Vendor","managerName":"Pedro"}
 {"name":"Karla","email":"karla@example.com","password":"Karla@123","phone":"00000000","role":"Vendor","managerName":"Pedro"}
 {"name":"Luis","email":"luis@example.com","password":"Luis@123","phone":"12345678","role":"Vendor","managerName":"Pedro"}
 {"name":"matheus","email":"matheus123@abc.com","password":"123","phone":"999999999","role":"manager","managerName":"pedro"}
+{"name":"caio","email":"caio123@gmail.com","password":"123","phone":"9999999999","role":"manager","managerName":"pedro"}
