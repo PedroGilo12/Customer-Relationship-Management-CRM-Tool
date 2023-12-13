@@ -67,6 +67,12 @@ Or compile it on windows CMD using the install.bat script:
 ```bash
 install.bat
 ```
+
+Good user for tests:
+
+mail: pedro@mail.com
+password: 123
+
 # How does it work?
 
 The project incorporates two design patterns to enhance its functionality: the adapter and the state pattern. The adapter pattern is employed to modularize the application, rendering it independent of the interfaces used for user interaction. This strategic design allows for the prospective implementation of mobile functionality without requiring alterations to the primary application. In contrast, the state pattern is used to streamline the augmentation of code functionalities through a unified menu interface. This approach facilitates the seamless implementation of new screens within the framework of a finite state machine.

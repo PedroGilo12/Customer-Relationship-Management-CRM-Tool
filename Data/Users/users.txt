@@ -1,4 +1,4 @@
-{"name":"Pedro","email":"a","password":"a","phone":"99999999","role":"manager","managerName":"Pedro"}
+{"name":"Pedro","email":"pedro@mail.com","123":"a","phone":"99999999","role":"manager","managerName":"Pedro"}
 {"name":"Ana","email":"ana@example.com","password":"Ana@123","phone":"88888888","role":"Vendor","managerName":"Pedro"}
 {"name":"Carlos","email":"carlos@example.com","password":"Carlos@123","phone":"77777777","role":"Vendor","managerName":"Pedro"}
 {"name":"Eva","email":"eva@example.com","password":"Eva@123","phone":"66666666","role":"Manager","managerName":"Eva"}
